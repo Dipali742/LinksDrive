@@ -1,3 +1,3 @@
-const backendUrl = 'https://linksdrive.herokuapp.com/server/';
+const backendUrl = 'https://linksdrive.herokuapp.com';
 
 export default backendUrl;
