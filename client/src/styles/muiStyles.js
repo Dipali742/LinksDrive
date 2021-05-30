@@ -1,8 +1,32 @@
 import { makeStyles } from '@material-ui/core/styles';
+import teal from '@material-ui/core/colors/purple';
 
+import { createMuiTheme } from '@material-ui/core/styles';
+
+export const themeapp = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#00695c',
+    },
+    secondary:{
+      main:'#4d577a'
+    },
+    },
+  
+});
+export const darkTheme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#949aaf',
+    },
+    
+    },
+  
+});
 export const useFormStyles = makeStyles(
   (theme) => ({
     root: {
+      color:teal,
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
@@ -70,6 +94,18 @@ export const useFormStyles = makeStyles(
   }),
   { index: 1 }
 );
+export const lightTheme = {
+    body: '#FFF',
+    text: '#363537',
+    toggleBorder: '#FFF',
+    background: '#363537',
+}
+// export const darkTheme = {
+//     body: '#363537',
+//     text: '#FAFAFA',
+//     toggleBorder: '#6B8096',
+//     background: '#999',
+// }
 
 export const useCardStyles = (isViewed, darkMode) => {
   return makeStyles(
@@ -114,7 +150,7 @@ export const useCardStyles = (isViewed, darkMode) => {
         marginRight: 5,
         textTransform: 'uppercase',
         '&:hover': {
-          backgroundColor: '#b0a7c7',
+          backgroundColor: '#9ae3dc',
         },
         [theme.breakpoints.down('xs')]: {
           marginBottom: 5,
@@ -242,6 +278,7 @@ export const useEntriesDisplayStyles = makeStyles(
 export const useFilterStyles = makeStyles(
   (theme) => ({
     root: {
+      color:teal,
       padding: '0 20px',
       display: 'flex',
       flexDirection: 'row',
@@ -367,6 +404,7 @@ export const useNavStyles = makeStyles(
       marginRight: 5,
     },
     user: {
+
       marginRight: 10,
     },
     titleButton: {
@@ -375,6 +413,7 @@ export const useNavStyles = makeStyles(
       marginRight: 12,
     },
     navButtons: {
+      
       '&:hover': {
         backgroundColor: '#88929c',
       },
@@ -386,6 +425,7 @@ export const useNavStyles = makeStyles(
 export const useTopPanelStyles = makeStyles(
   (theme) => ({
     root: {
+     
       marginTop: 15,
       padding: 10,
     },
@@ -405,7 +445,7 @@ export const useTopPanelStyles = makeStyles(
 export const useDeleteBtnStyles = makeStyles(
   () => ({
     deleteButton: {
-      color: '#ff846e',
+      color: '#cddc39',
       textTransform: 'capitalize',
       fontSize: 16,
       '&:hover': {
