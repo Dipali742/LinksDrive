@@ -146,7 +146,7 @@ const AddUpdateForm = () => {
   return (
     <Paper>
       <form onSubmit={handleSubmit} className={classes.root}>
-      <ThemeProvider theme={themeapp}>
+     
         <Typography
           variant={isMobile ? 'h5' : 'h4'}
           color="primary"
@@ -290,7 +290,7 @@ const AddUpdateForm = () => {
             clearError={() => setError(null)}
           />
         )}
-        </ThemeProvider>
+       
       </form>
 
     </Paper>
