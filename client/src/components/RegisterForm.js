@@ -10,7 +10,10 @@ import { useEntryContext } from '../context/entry/entryState';
 import { toggleIsLoading } from '../context/entry/entryReducer';
 import storageService from '../utils/localStorageHelpers';
 import notify from '../utils/notifyDispatcher';
-
+// import {ThemeProvider} from '@material-ui/core/styles';
+// import {themeapp} from '../styles/muiStyles';
+// import ContactMailIcon from '@material-ui/icons/ContactMail';
+// import {customTheme} from '../styles/customTheme';
 import {
   TextField,
   Button,
@@ -22,14 +25,15 @@ import {
 } from '@material-ui/core/';
 import { useRegisterLoginForm } from '../styles/muiStyles';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
-import PersonIcon from '@material-ui/icons/Person';
-import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
+// import PersonIcon from '@material-ui/icons/Person';
+// import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
 import LockIcon from '@material-ui/icons/Lock';
 import EnhancedEncryptionIcon from '@material-ui/icons/EnhancedEncryption';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 import VisibilityIcon from '@material-ui/icons/Visibility';
-
-const RegisterForm = () => {
+import MailIcon from '@material-ui/icons/Mail';
+import AccountBoxIcon from '@material-ui/icons/AccountBox';
+const RegisterForm = (darkMode) => {
   const [userDetails, setUserDetails] = useState({
     displayName: '',
     email: '',
@@ -87,15 +91,17 @@ const RegisterForm = () => {
   };
 
   return (
+    
     <Paper className={classes.root}>
       <form onSubmit={handleRegister} className={classes.form}>
+     
         <Typography variant="h4" color="primary" className={classes.formTitle}>
-          Create an account
+          USER REGISTRATION
         </Typography>
         <div className={classes.input}>
-          <PersonIcon color="secondary" className={classes.inputIcon} />
+          <AccountBoxIcon color="primary" className={classes.inputIcon} />
           <TextField
-            color="secondary"
+            color="primary"
             required
             label="Display Name"
             value={displayName}
@@ -105,9 +111,9 @@ const RegisterForm = () => {
           />
         </div>
         <div className={classes.input}>
-          <AlternateEmailIcon color="secondary" className={classes.inputIcon} />
+          <MailIcon color="primary" className={classes.inputIcon} />
           <TextField
-            color="secondary"
+            color="primary"
             required
             type="email"
             label="Email"
@@ -118,9 +124,9 @@ const RegisterForm = () => {
           />
         </div>
         <div className={classes.input}>
-          <LockIcon color="secondary" className={classes.inputIcon} />
+          <LockIcon color="primary" className={classes.inputIcon} />
           <TextField
-            color="secondary"
+            color="primary"
             required
             type={showPass ? 'text' : 'password'}
             label="Password"
@@ -141,11 +147,11 @@ const RegisterForm = () => {
         </div>
         <div className={classes.input}>
           <EnhancedEncryptionIcon
-            color="secondary"
+            color="primary"
             className={classes.inputIcon}
           />
           <TextField
-            color="secondary"
+            color="primary"
             required
             type={showConfirmPass ? 'text' : 'password'}
             label="Confirm Password"
@@ -170,6 +176,7 @@ const RegisterForm = () => {
             }}
           />
         </div>
+        
         <Button
           type="submit"
           variant="contained"
@@ -181,12 +188,14 @@ const RegisterForm = () => {
         >
           {isLoading ? 'Registering' : 'Register'}
         </Button>
+        
         <Typography variant="body1" className={classes.bottomText}>
           Already have an account?{' '}
           <Link component={RouterLink} to="/login">
             Login.
           </Link>
         </Typography>
+        
         {error && (
           <AlertBox
             message={error}
@@ -197,6 +206,7 @@ const RegisterForm = () => {
        
       </form>
     </Paper>
+    
   );
 };
 

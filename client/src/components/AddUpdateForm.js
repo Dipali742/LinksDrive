@@ -30,10 +30,11 @@ import LinkIcon from '@material-ui/icons/Link';
 import DescriptionIcon from '@material-ui/icons/Description';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import LocalOfferIcon from '@material-ui/icons/LocalOffer';
-import PostAddIcon from '@material-ui/icons/PostAdd';
+import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
 import EditIcon from '@material-ui/icons/Edit';
 import BackspaceIcon from '@material-ui/icons/Backspace';
-
+import {themeapp} from '../styles/muiStyles';
+import {ThemeProvider} from '@material-ui/core/styles';
 const initialInputValues = {
   title: '',
   link: '',
@@ -145,17 +146,18 @@ const AddUpdateForm = () => {
   return (
     <Paper>
       <form onSubmit={handleSubmit} className={classes.root}>
+      <ThemeProvider theme={themeapp}>
         <Typography
           variant={isMobile ? 'h5' : 'h4'}
           color="primary"
           className={classes.formTitle}
         >
-          {editValues ? 'Update the entry' : 'Add a new entry'}
+          {editValues ? 'UPDATE ENTRY' : 'ADD NEW ENTRY'}
         </Typography>
         <div className={classes.input}>
-          <TitleIcon color="secondary" className={classes.inputIcon} />
+          <TitleIcon color="primary" className={classes.inputIcon} />
           <TextField
-            color="secondary"
+            color="primary"
             required
             label="Title"
             value={title}
@@ -165,9 +167,9 @@ const AddUpdateForm = () => {
           />
         </div>
         <div className={classes.input}>
-          <LinkIcon color="secondary" className={classes.inputIcon} />
+          <LinkIcon color="primary" className={classes.inputIcon} />
           <TextField
-            color="secondary"
+            color="primary"
             required
             label="Link"
             value={link}
@@ -177,9 +179,9 @@ const AddUpdateForm = () => {
           />
         </div>
         <div className={classes.input}>
-          <DescriptionIcon color="secondary" className={classes.inputIcon} />
+          <DescriptionIcon color="primary" className={classes.inputIcon} />
           <TextField
-            color="secondary"
+            color="primary"
             required
             multiline
             label="Description"
@@ -191,9 +193,9 @@ const AddUpdateForm = () => {
         </div>
         <div className={classes.tagArea}>
           <div className={classes.input}>
-            <LocalOfferIcon color="secondary" className={classes.inputIcon} />
+            <LocalOfferIcon color="primary" className={classes.inputIcon} />
             <TextField
-              color="secondary"
+              color="primary"
               label="Add Tags"
               value={tagInput}
               onChange={({ target }) => setTagInput(target.value)}
@@ -215,14 +217,14 @@ const AddUpdateForm = () => {
                 label={tag}
                 onDelete={() => handleTagDelete(tag)}
                 variant="outlined"
-                color="secondary"
+                color="primary"
                 className={classes.tag}
               />
             ))}
           </div>
         </div>
         <div className={classes.radioInput}>
-          <CheckCircleOutlineIcon color="secondary" />
+          <CheckCircleOutlineIcon color="primary" />
           <FormLabel component="legend" className={classes.radioLabel}>
             Link Type:
           </FormLabel>
@@ -236,19 +238,19 @@ const AddUpdateForm = () => {
           >
             <FormControlLabel
               label="Article"
-              control={<Radio color="secondary" />}
+              control={<Radio color="primary" />}
               value="article"
               checked={type === 'article'}
             />
             <FormControlLabel
               label="Video"
-              control={<Radio color="secondary" />}
+              control={<Radio color="primary" />}
               value="video"
               checked={type === 'video'}
             />
             <FormControlLabel
               label="Other"
-              control={<Radio color="secondary" />}
+              control={<Radio color="primary" />}
               value="other"
               checked={type === 'other'}
             />
@@ -269,7 +271,7 @@ const AddUpdateForm = () => {
             variant="contained"
             color="primary"
             size={isMobile ? 'medium' : 'large'}
-            startIcon={editValues ? <EditIcon /> : <PostAddIcon />}
+            startIcon={editValues ? <EditIcon /> : <LibraryAddIcon />}
             disabled={isLoading}
           >
             {editValues
@@ -278,7 +280,7 @@ const AddUpdateForm = () => {
                 : 'Update Entry'
               : isLoading
               ? 'Adding Entry'
-              : 'Add Entry'}
+              : 'Add New Entry'}
           </Button>
         </div>
         {error && (
@@ -288,7 +290,9 @@ const AddUpdateForm = () => {
             clearError={() => setError(null)}
           />
         )}
+        </ThemeProvider>
       </form>
+
     </Paper>
   );
 };

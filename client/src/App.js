@@ -20,6 +20,7 @@ import { useMainPaperStyles } from './styles/muiStyles';
 import customTheme from './styles/customTheme';
 import { ThemeProvider } from '@material-ui/core/styles';
 
+import {themeapp} from './styles/muiStyles';
 const App = () => {
   const [{ user }, authDispatch] = useAuthContext();
   const [{ darkMode, notification }, entryDispatch] = useEntryContext();
@@ -65,7 +66,7 @@ const App = () => {
   }, [entryDispatch]);
 
   return (
-    <ThemeProvider theme={customTheme(darkMode)}>
+    <ThemeProvider theme={darkMode ? customTheme(darkMode) : themeapp}>
       <Paper className={classes.root} elevation={0}>
         <NavBar />
         <Routes />

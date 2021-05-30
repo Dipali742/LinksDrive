@@ -13,8 +13,10 @@ import { useSearchStyles } from '../styles/muiStyles';
 import { useTheme } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
-
-const Search = () => {
+// import {ThemeProvider} from '@material-ui/core/styles';
+// import {themeapp} from '../styles/muiStyles';
+// import {customTheme} from '../styles/customTheme';
+const Search = (darkMode) => {
   const query = useRef();
   const classes = useSearchStyles();
   const [, dispatch] = useEntryContext();
@@ -56,20 +58,22 @@ const Search = () => {
 
   return (
     <div className={classes.root}>
+    
       <TextField
         className={classes.field}
+        color='primary'
         fullWidth
         label="Search"
         variant="outlined"
-        placeholder="By title, tag or description"
+        placeholder="Title, Tag or Description"
         inputRef={query}
         onChange={handleSearchChange}
-        color="secondary"
+       
         size={isMobile ? 'small' : 'medium'}
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
-              <SearchIcon color="secondary" />
+              <SearchIcon color="primary" />
             </InputAdornment>
           ),
           endAdornment: (
@@ -79,6 +83,7 @@ const Search = () => {
           ),
         }}
       />
+     
     </div>
   );
 };

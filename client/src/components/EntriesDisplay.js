@@ -18,8 +18,11 @@ import { useEntriesDisplayStyles } from '../styles/muiStyles';
 import { useTheme } from '@material-ui/core/styles';
 import { Skeleton } from '@material-ui/lab/';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-
-const EntriesDisplay = () => {
+// import {themeapp} from '../styles/muiStyles';
+// import {ThemeProvider} from '@material-ui/core/styles';
+// import customTheme from '../styles/customTheme';
+// import {customTheme} from '../styles/customTheme';
+const EntriesDisplay = (darkMode) => {
   const [
     { entries, filter, search, tag, sortBy, isLoading },
     dispatch,
@@ -74,13 +77,15 @@ const EntriesDisplay = () => {
 
   return (
     <div>
+ {/* <ThemeProvider theme={customTheme(darkMode)}>*/}
+     
       <div className={classes.flexedBar}>
         <div className={classes.textAndButton}>
           {(tag || filter || search) && backButton()}
           <Typography
             variant="h6"
             className={classes.infoText}
-            color="secondary"
+            color="primary"
           >
             {infoText}
           </Typography>
@@ -106,11 +111,13 @@ const EntriesDisplay = () => {
         <Typography
           variant={isMobile ? 'h5' : 'h4'}
           className={classes.middleText}
-          color="secondary"
+          color="primary"
         >
           {search || filter ? 'No matches found.' : 'No entries added yet.'}
         </Typography>
       )}
+       
+    {/* </ThemeProvider>*/}
     </div>
   );
 };

@@ -5,7 +5,7 @@ import { logoutUser } from '../context/auth/authReducer';
 import { useEntryContext } from '../context/entry/entryState';
 import { toggleDarkMode } from '../context/entry/entryReducer';
 import storageService from '../utils/localStorageHelpers';
-
+import {pink} from '@material-ui/core/colors/pink';
 import {
   AppBar,
   Toolbar,
@@ -16,18 +16,23 @@ import {
   MenuItem,
   useMediaQuery,
   Switch,
-  Link,
+  // Link,
   Container,
 } from '@material-ui/core';
 import { useNavStyles } from '../styles/muiStyles';
 import { useTheme } from '@material-ui/core/styles';
-import ListAltRoundedIcon from '@material-ui/icons/ListAltRounded';
+// import ListAltRoundedIcon from '@material-ui/icons/ListAltRounded';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
 import Brightness7Icon from '@material-ui/icons/Brightness7';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
-import FavoriteIcon from '@material-ui/icons/Favorite';
+// import FavoriteIcon from '@material-ui/icons/Favorite';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+// import {ThemeProvider} from '@material-ui/core/styles';
+// import {themeapp,darkTheme} from '../styles/muiStyles';
+import ViewListIcon from '@material-ui/icons/ViewList';
+// import FlareIcon from '@material-ui/icons/Flare';
+// import {customTheme} from '../styles/customTheme';
 
 const NavBar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -70,12 +75,19 @@ const NavBar = () => {
     return user ? (
       <div>
         <MenuItem onClick={() => handleClose()}>
-          Hi, {user && user.displayName}
+          Hello, {user && user.displayName}
         </MenuItem>
         <MenuItem onClick={handleLogout}>Logout</MenuItem>{' '}
       </div>
     ) : (
       <div>
+      <MenuItem
+          component={RouterLink}
+          to="/about"
+          onClick={() => handleClose()}
+        >
+          About
+        </MenuItem>
         <MenuItem
           component={RouterLink}
           to="/register"
@@ -98,7 +110,7 @@ const NavBar = () => {
     return user ? (
       <>
         <Typography variant="body1" className={classes.user}>
-          Hi, {user && user.displayName}
+          Hello, {user && user.displayName}
         </Typography>
         <Button
           color="inherit"
@@ -111,6 +123,15 @@ const NavBar = () => {
       </>
     ) : (
       <>
+      
+      <Button
+          component={RouterLink}
+          to="/about"
+          color="inherit"
+          onClick={() => handleClose()}
+        >
+          About
+        </Button>
         <Button
           component={RouterLink}
           to="/register"
@@ -125,8 +146,10 @@ const NavBar = () => {
           color="inherit"
           className={classes.navButtons}
         >
+
           Login
         </Button>
+      
       </>
     );
   };
@@ -137,37 +160,31 @@ const NavBar = () => {
     }
 
     return (
+       
       <Switch
         checked={darkMode}
         onChange={handleDarkMode}
-        icon={<Brightness7Icon style={{ color: ' #f9a723' }} />}
-        checkedIcon={<Brightness4Icon style={{ color: '#6a0dad' }} />}
+        icon={<Brightness7Icon style={{color:'primary'}} />}
+        checkedIcon={<Brightness4Icon style={{ color: 'white' }} />}
       />
+      
     );
   };
 
   return (
     <Container disableGutters className={classes.navContainer}>
-      <AppBar color="primary" elevation={1} position="static">
+   
+    
+      <AppBar color={pink} elevation={1} position="static">
         <Toolbar variant="dense" disableGutters={isMobile}>
           <div className={classes.topLeftButton}>
             {location.pathname === '/' || !loggedUser ? (
               <div className={classes.logoWrapper}>
                 <Typography variant="h6" className={classes.logo}>
-                  <ListAltRoundedIcon className={classes.logoIcon} />
+                  <ViewListIcon className={classes.logoIcon} />
                   LinksDrive
                 </Typography>
-                <Typography variant="caption" className={classes.madeBy}>
-                  Made with <FavoriteIcon style={{ fontSize: 11 }} /> by{' '}
-                  <Link
-                    href={''}
-                    color="inherit"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    LinksDrive
-                  </Link>
-                </Typography>
+                
               </div>
             ) : (
               <Button
@@ -214,6 +231,9 @@ const NavBar = () => {
           )}
         </Toolbar>
       </AppBar>
+     
+    
+
     </Container>
   );
 };

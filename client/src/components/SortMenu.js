@@ -18,7 +18,7 @@ const SortMenu = () => {
     <div className={classes.root}>
       <Typography variant="subtitle1" className={classes.label}>
         <SortIcon className={classes.sortIcon} />
-        Sort by:
+        
       </Typography>
       <form>
         <FormControl>

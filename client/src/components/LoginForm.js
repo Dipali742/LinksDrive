@@ -10,7 +10,7 @@ import { loginUser } from '../context/auth/authReducer';
 import { toggleIsLoading } from '../context/entry/entryReducer';
 import storageService from '../utils/localStorageHelpers';
 import notify from '../utils/notifyDispatcher';
-
+import MailIcon from '@material-ui/icons/Mail';
 import {
   TextField,
   Button,
@@ -21,13 +21,15 @@ import {
   IconButton,
 } from '@material-ui/core/';
 import { useRegisterLoginForm } from '../styles/muiStyles';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
+
 import LockIcon from '@material-ui/icons/Lock';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 
-const LoginForm = () => {
+
+import LockOpenIcon from '@material-ui/icons/LockOpen';
+
+const LoginForm = (darkMode) => {
   const [credentials, setCredentials] = useState({
     email: '',
     password: '',
@@ -77,15 +79,18 @@ const LoginForm = () => {
   };
 
   return (
+   
     <Paper className={classes.root}>
       <form onSubmit={handleLogin} className={classes.form}>
+      
         <Typography variant="h4" color="primary" className={classes.formTitle}>
-          Login to your account
+         USER LOGIN 
         </Typography>
+        
         <div className={classes.input}>
-          <AlternateEmailIcon color="secondary" className={classes.inputIcon} />
+          < MailIcon color="primary" className={classes.inputIcon} />
           <TextField
-            color="secondary"
+            color="primary"
             required
             type="email"
             label="Email"
@@ -96,9 +101,9 @@ const LoginForm = () => {
           />
         </div>
         <div className={classes.input}>
-          <LockIcon color="secondary" className={classes.inputIcon} />
+          <LockIcon color="primary" className={classes.inputIcon} />
           <TextField
-            color="secondary"
+            color="primary"
             required
             type={showPass ? 'text' : 'password'}
             label="Password"
@@ -117,24 +122,27 @@ const LoginForm = () => {
             }}
           />
         </div>
-
+        
         <Button
           type="submit"
           variant="contained"
           color="primary"
           size="large"
           className={classes.submitButton}
-          startIcon={<ExitToAppIcon />}
+          startIcon={<LockOpenIcon />}
           disabled={isLoading}
         >
           {isLoading ? 'Logging in' : 'Login'}
-        </Button>
+
+        </Button >
+        
         <Typography variant="body1" className={classes.bottomText}>
           Don't have an account?{' '}
           <Link component={RouterLink} to="/register">
-            Register.
+            Sign up.
           </Link>
         </Typography>
+        
         {error && (
           <AlertBox
             message={error.message}
@@ -146,6 +154,7 @@ const LoginForm = () => {
         
       </form>
     </Paper>
+    
   );
 };
 

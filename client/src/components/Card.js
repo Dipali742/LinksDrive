@@ -134,6 +134,7 @@ const Card = ({ entry }) => {
           )}
           {title}
         </Typography>
+
         <div className={classes.endButtons}>
           {!isMobile ? (
             <>
@@ -171,7 +172,7 @@ const Card = ({ entry }) => {
                 className={classes.star}
               />
             }
-            label={isMobile ? '' : isStarred ? 'Starred!' : 'Star it'}
+            label={isMobile ? '' : isStarred ? 'Starred!' : 'Star'}
             onChange={handleStarToggle}
             className={classes.starButton}
           />
@@ -184,13 +185,20 @@ const Card = ({ entry }) => {
                 className={classes.view}
               />
             }
-            label={isMobile ? '' : isViewed ? 'Viewed!' : 'Mark as viewed'}
+            label={isMobile ? '' : isViewed ? 'Viewed!' : 'Mark as Viewed'}
             onChange={handleViewToggle}
             className={classes.viewButton}
           />
         </div>
       </div>
       <Divider />
+       <Typography varaint="body1" className={classes.description}>
+          {type === 'article' ? (<div>Article</div>) : 
+           type === 'video' ?  (<div>Video</div>) :
+          (<div>Others</div>) 
+            
+          }
+        </Typography>
       <div>
         <Link
           href={formattedLink}
@@ -205,6 +213,7 @@ const Card = ({ entry }) => {
             ? formattedLink.slice(0, 40) + '...'
             : formattedLink}
         </Link>
+       
         <Typography varaint="body1" className={classes.description}>
           {description}
         </Typography>
@@ -215,7 +224,7 @@ const Card = ({ entry }) => {
               <Chip
                 key={tag}
                 label={tag}
-                color="secondary"
+                color="primary"
                 className={classes.tag}
                 onClick={() => handleTagFilter(tag)}
               />
@@ -225,7 +234,7 @@ const Card = ({ entry }) => {
         <Typography variant="body2" className={classes.addedTime}>
           <Tooltip title={createdAt}>
             <span>
-              Added:{' '}
+              Created:{' '}
               <TimeAgo datetime={createdAt} className={classes.timestamp} />
             </span>
           </Tooltip>
@@ -233,7 +242,7 @@ const Card = ({ entry }) => {
             <Tooltip title={updatedAt}>
               <span>
                 {' '}
-                | Last modified:{' '}
+                | Modified:{' '}
                 <TimeAgo
                   datetime={updatedAt}
                   className={classes.timestamp}

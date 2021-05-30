@@ -8,11 +8,13 @@ import {
   FormControlLabel,
   Checkbox,
 } from '@material-ui/core';
+// import {ThemeProvider} from '@material-ui/core/styles';
 import { useFilterStyles } from '../styles/muiStyles';
 import FilterListIcon from '@material-ui/icons/FilterList';
 import RotateLeftIcon from '@material-ui/icons/RotateLeft';
-
-const Filter = () => {
+// import {themeapp} from '../styles/muiStyles';
+// import {customTheme} from '../styles/customTheme';
+const Filter = (darkMode) => {
   const [, dispatch] = useEntryContext();
   const [filter, setFilter] = useState({
     videos: false,
@@ -50,40 +52,12 @@ const Filter = () => {
 
   return (
     <form className={classes.root} onSubmit={handleApplyFilter}>
+   
       <FormGroup row className={classes.checkboxGroup}>
-        <FormControlLabel
+      <FormControlLabel
           control={
             <Checkbox
-              checked={videos}
-              onChange={handleCheckboxChange}
-              name="videos"
-            />
-          }
-          label="Videos"
-        />
-        <FormControlLabel
-          control={
-            <Checkbox
-              checked={articles}
-              onChange={handleCheckboxChange}
-              name="articles"
-            />
-          }
-          label="Articles"
-        />
-        <FormControlLabel
-          control={
-            <Checkbox
-              checked={others}
-              onChange={handleCheckboxChange}
-              name="others"
-            />
-          }
-          label="Others"
-        />
-        <FormControlLabel
-          control={
-            <Checkbox
+            color='primary'
               checked={viewed}
               onChange={handleCheckboxChange}
               name="viewed"
@@ -94,6 +68,7 @@ const Filter = () => {
         <FormControlLabel
           control={
             <Checkbox
+            color='primary'
               checked={starred}
               onChange={handleCheckboxChange}
               name="starred"
@@ -101,6 +76,41 @@ const Filter = () => {
           }
           label="Starred"
         />
+        <FormControlLabel 
+          control={
+            <Checkbox
+            color='primary'
+              checked={videos}
+              onChange={handleCheckboxChange}
+              name="videos"
+            />
+
+          }
+          label="Videos"
+        />
+        <FormControlLabel
+          control={
+            <Checkbox
+            color='primary'
+              checked={articles}
+              onChange={handleCheckboxChange}
+              name="articles"
+            />
+          }
+          label="Articles"
+        />
+        <FormControlLabel
+          control={
+            <Checkbox
+            color='primary'
+              checked={others}
+              onChange={handleCheckboxChange}
+              name="others"
+            />
+          }
+          label="Others"
+        />
+        
         <Button
           onClick={handleUncheck}
           startIcon={<RotateLeftIcon />}
@@ -111,6 +121,7 @@ const Filter = () => {
           Reset
         </Button>
       </FormGroup>
+       
       <Button
         type="submit"
         variant="contained"
@@ -118,8 +129,9 @@ const Filter = () => {
         startIcon={<FilterListIcon />}
         className={classes.filterButton}
       >
-        Apply Filter
+        Filter Entries
       </Button>
+     
     </form>
   );
 };
