@@ -8,7 +8,7 @@ import LoginForm from './LoginForm';
 import { useAuthContext } from '../context/auth/authState';
 import storageService from '../utils/localStorageHelpers';
 import { Container } from '@material-ui/core';
-import About from './about';
+
 const Routes = () => {
   const [{ user }] = useAuthContext();
   const loggedUser = storageService.loadUser() || user;
@@ -23,15 +23,12 @@ const Routes = () => {
               <EntriesDisplay />
             </>
           ) : (
-            <Redirect to="/about" />
+            <Redirect to="/login" />
           )}
         </Route>
         <Route exact path="/add_update">
-          {loggedUser ? <AddUpdateForm /> : <Redirect to="/about" />}
+          {loggedUser ? <AddUpdateForm /> : <Redirect to="/login" />}
         </Route>
-        <Route exact path="/about">
-          <About />
-          </Route>
         <Route exact path="/register">
           <RegisterForm />
         </Route>
