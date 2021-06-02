@@ -1,1 +1,2 @@
 # LinksDrive
+LinksDrive is a powerful and easy to use web app for seamlessly organizing the daily tasks of a user. It is a drive with a private repository for each user where they can add the links using a tagging system with some features and a search engine that makes sorting of the desired data easier. You know! Smart Idea always comes to well planners. Explore in new support world! It’s now faster & quicker. Taking a step towards operating with maximum efficiency tomorrow by using LinksDrive today!
