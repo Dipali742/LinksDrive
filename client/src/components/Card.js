@@ -33,11 +33,13 @@ import StarBorderIcon from '@material-ui/icons/StarBorder';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import VisibilityOutlinedIcon from '@material-ui/icons/VisibilityOutlined';
 import LinkIcon from '@material-ui/icons/Link';
-import WebIcon from '@material-ui/icons/Web';
-import YouTubeIcon from '@material-ui/icons/YouTube';
+import ComputerIcon from '@material-ui/icons/Computer';
+// import WebIcon from '@material-ui/icons/Web';
+// import YouTubeIcon from '@material-ui/icons/YouTube';
 import EditIcon from '@material-ui/icons/Edit';
 import LineStyleIcon from '@material-ui/icons/LineStyle';
-
+import VideoLabelIcon from '@material-ui/icons/VideoLabel';
+import AssignmentIcon from '@material-ui/icons/Assignment';
 const Card = ({ entry }) => {
   const {
     id,
@@ -125,10 +127,12 @@ const Card = ({ entry }) => {
     <Paper className={classes.root} variant="outlined">
       <div className={classes.cardTitle}>
         <Typography variant="h5" className={classes.linkTitle}>
-          {type === 'article' ? (
-            <WebIcon style={iconStyle} fontSize={iconSize} />
+          { type ==='blog' ? (
+            <AssignmentIcon style={iconStyle} fontSize={iconSize} />
           ) : type === 'video' ? (
-            <YouTubeIcon style={iconStyle} fontSize={iconSize} />
+            <VideoLabelIcon style={iconStyle} fontSize={iconSize} />
+          ) : type === 'course' ? (
+            <ComputerIcon style={iconStyle} fontSize={iconSize} />
           ) : (
             <LineStyleIcon style={iconStyle} fontSize={iconSize} />
           )}
@@ -192,9 +196,10 @@ const Card = ({ entry }) => {
         </div>
       </div>
       <Divider />
-       <Typography varaint="body1" className={classes.description}>
-          {type === 'article' ? (<div>Article</div>) : 
+       <Typography variant="body1" className={classes.description}>
+          {type === 'blog' ? (<div>Blogs</div>) : 
            type === 'video' ?  (<div>Video</div>) :
+           type === 'course' ?  (<div>Courses</div>) :
           (<div>Others</div>) 
             
           }

@@ -1,4 +1,4 @@
-const storageKeyToken = 'toViewAppUser';
+const storageKeyToken = 'linksdriveuser';
 const storageKeyDarkMode = 'darkMode';
 
 const saveUser = (user) =>

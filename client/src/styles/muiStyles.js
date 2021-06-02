@@ -457,6 +457,39 @@ export const useDeleteBtnStyles = makeStyles(
   { index: 1 }
 );
 
+
+export const useabout = makeStyles(
+  (theme) => ({
+    root: {
+      minHeight: '100%',
+    },
+    form: {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      padding: '25px 20px',
+      [theme.breakpoints.up('md')]: {
+        padding: '50px 200px',
+      }
+    },
+    formele: {
+      
+      justifyContent: 'left',
+      padding: '10px 10px',
+      [theme.breakpoints.up('sm')]: {
+        padding: '0px 25px',
+      }
+    },
+    formTitle: {
+      textAlign: 'center',
+      [theme.breakpoints.down('xs')]: {
+        fontSize: '1.6rem',
+      },
+    },
+  }),
+  { index: 1 }
+  );
+
 export const useRegisterLoginForm = makeStyles(
   (theme) => ({
     root: {

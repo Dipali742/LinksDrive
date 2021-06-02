@@ -8,6 +8,7 @@ import storageService from '../utils/localStorageHelpers';
 import {pink} from '@material-ui/core/colors/pink';
 import {
   AppBar,
+  Checkbox,
   Toolbar,
   Typography,
   Button,
@@ -15,7 +16,7 @@ import {
   Menu,
   MenuItem,
   useMediaQuery,
-  Switch,
+  //Switch,
   // Link,
   Container,
 } from '@material-ui/core';
@@ -23,7 +24,7 @@ import { useNavStyles } from '../styles/muiStyles';
 import { useTheme } from '@material-ui/core/styles';
 // import ListAltRoundedIcon from '@material-ui/icons/ListAltRounded';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
+// import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
 import Brightness7Icon from '@material-ui/icons/Brightness7';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 // import FavoriteIcon from '@material-ui/icons/Favorite';
@@ -33,6 +34,7 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import ViewListIcon from '@material-ui/icons/ViewList';
 // import FlareIcon from '@material-ui/icons/Flare';
 // import {customTheme} from '../styles/customTheme';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 const NavBar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -114,7 +116,7 @@ const NavBar = () => {
         </Typography>
         <Button
           color="inherit"
-          startIcon={<PowerSettingsNewIcon />}
+          startIcon={<ExitToAppIcon />}
           onClick={handleLogout}
           className={classes.navButtons}
         >
@@ -156,16 +158,16 @@ const NavBar = () => {
 
   const darkModeSwitch = () => {
     if (isMobile) {
-      return <Switch checked={darkMode} onChange={handleDarkMode} />;
+      return <Checkbox checked={darkMode} onChange={handleDarkMode} />;
     }
 
     return (
        
-      <Switch
+      <Checkbox
         checked={darkMode}
         onChange={handleDarkMode}
-        icon={<Brightness7Icon style={{color:'primary'}} />}
-        checkedIcon={<Brightness4Icon style={{ color: 'white' }} />}
+        icon={<Brightness7Icon style={{color:'white'}} />}
+        checkedIcon={<Brightness4Icon style={{ color: 'black' }} />}
       />
       
     );

@@ -10,6 +10,7 @@ import {
   toggleIsLoading,
 } from '../context/entry/entryReducer';
 import notify from '../utils/notifyDispatcher';
+import LibraryAddCheckIcon from '@material-ui/icons/LibraryAddCheck';
 
 import {
   FormControlLabel,
@@ -28,13 +29,12 @@ import { useTheme } from '@material-ui/core/styles';
 import TitleIcon from '@material-ui/icons/Title';
 import LinkIcon from '@material-ui/icons/Link';
 import DescriptionIcon from '@material-ui/icons/Description';
-import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
+// import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
 import EditIcon from '@material-ui/icons/Edit';
 import BackspaceIcon from '@material-ui/icons/Backspace';
-import {themeapp} from '../styles/muiStyles';
-import {ThemeProvider} from '@material-ui/core/styles';
+
 const initialInputValues = {
   title: '',
   link: '',
@@ -224,7 +224,7 @@ const AddUpdateForm = () => {
           </div>
         </div>
         <div className={classes.radioInput}>
-          <CheckCircleOutlineIcon color="primary" />
+          <LibraryAddCheckIcon color="primary" />
           <FormLabel component="legend" className={classes.radioLabel}>
             Link Type:
           </FormLabel>
@@ -236,11 +236,19 @@ const AddUpdateForm = () => {
             onChange={handleOnChange}
             className={classes.radioGroup}
           >
+            
             <FormControlLabel
-              label="Article"
+              label="Blog"
               control={<Radio color="primary" />}
-              value="article"
-              checked={type === 'article'}
+              value="blog"
+              checked={type === 'blog'}
+            />
+           
+            <FormControlLabel
+              label="Course"
+              control={<Radio color="primary" />}
+              value="course"
+              checked={type === 'course'}
             />
             <FormControlLabel
               label="Video"

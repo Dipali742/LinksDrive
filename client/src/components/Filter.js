@@ -18,13 +18,16 @@ const Filter = (darkMode) => {
   const [, dispatch] = useEntryContext();
   const [filter, setFilter] = useState({
     videos: false,
-    articles: false,
+    
+    blogs:false,
+    
+    courses:false,
     others: false,
     viewed: false,
     starred: false,
   });
   const classes = useFilterStyles();
-  const { videos, articles, others, viewed, starred } = filter;
+  const { videos, blogs,courses, others, viewed, starred } = filter;
 
   const handleCheckboxChange = (event) => {
     setFilter({ ...filter, [event.target.name]: event.target.checked });
@@ -42,7 +45,10 @@ const Filter = (darkMode) => {
   const handleUncheck = () => {
     setFilter({
       videos: false,
-      articles: false,
+      
+      blogs:false,
+    
+    courses:false,
       others: false,
       viewed: false,
       starred: false,
@@ -88,16 +94,29 @@ const Filter = (darkMode) => {
           }
           label="Videos"
         />
+        
         <FormControlLabel
           control={
             <Checkbox
             color='primary'
-              checked={articles}
+              checked={blogs}
               onChange={handleCheckboxChange}
-              name="articles"
+              name="blogs"
             />
           }
-          label="Articles"
+          label="Blogs"
+        />
+        
+        <FormControlLabel
+          control={
+            <Checkbox
+            color='primary'
+              checked={courses}
+              onChange={handleCheckboxChange}
+              name="courses"
+            />
+          }
+          label="Courses"
         />
         <FormControlLabel
           control={

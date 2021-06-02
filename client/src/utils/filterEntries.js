@@ -13,13 +13,25 @@ const filterEntries = (filterObj, entriesArray) => {
     );
   }
 
-  if (filterObj.articles) {
+  if (filterObj.blogs) {
     filteredArray.push(
       ...entriesArray.filter(
-        (e) => e.type === 'article' && !filteredArray.includes(e)
+        (e) => e.type === 'blog' && !filteredArray.includes(e)
       )
     );
   }
+
+ 
+  if (filterObj.courses) {
+    filteredArray.push(
+      ...entriesArray.filter(
+        (e) => e.type === 'course' && !filteredArray.includes(e)
+      )
+    );
+  }
+
+
+  
 
   if (filterObj.others) {
     filteredArray.push(

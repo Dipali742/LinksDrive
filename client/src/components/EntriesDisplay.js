@@ -39,7 +39,7 @@ const EntriesDisplay = (darkMode) => {
   );
 
   const infoText = showInfoText(filter, search, tag, currentFilter);
-
+console.log(sortBy);
   const handleFilterReset = () => {
     dispatch(resetFilter());
     dispatch(resetTagFilter());

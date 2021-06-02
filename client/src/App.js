@@ -37,6 +37,7 @@ const App = () => {
   }, [authDispatch]);
 
   useEffect(() => {
+    
     const getAllEntries = async () => {
       try {
         entryDispatch(toggleIsLoading());
@@ -68,6 +69,7 @@ const App = () => {
   return (
     <ThemeProvider theme={darkMode ? customTheme(darkMode) : themeapp}>
       <Paper className={classes.root} elevation={0}>
+
         <NavBar />
         <Routes />
         {notification && (
