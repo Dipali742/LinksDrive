@@ -1,4 +1,13 @@
 {
+{
+  "name": "LinksDrive",
+  "short_name": "linksdrive",
+  "theme_color": "#1d8309",
+  "background_color": "#2196f3",
+  "display": "browser",
+  "scope": "/",
+  "start_url": "/"
+}
   "short_name": "LinksDrive",
   "name": "LinksDrive",
   "icons": [
@@ -18,8 +27,5 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#4d577a",
-  "background_color": "#d6d2e2"
+
 }
