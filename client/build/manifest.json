@@ -4,7 +4,7 @@
   "short_name": "linksdrive",
   "theme_color": "#1d8309",
   "background_color": "#2196f3",
-  "display": "browser",
+  "display": "standalone",
   "scope": "/",
   "start_url": "/",
 
